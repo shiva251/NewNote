@@ -1,0 +1,80 @@
+<div class="container-fluid">
+
+  <div class="icon-bar">
+    <button (click)="toggleShow()" class="togglebtn">{{button_name}}
+    </button>
+    <a class="active" routerLink="/"><i class="fa fa-home"></i>Notes</a>
+    <!-- <a><span class="glyphicon glyphicon-book"></span></a> -->
+    <button id="book"><span class="glyphicon glyphicon-book" (click)="showDetails()"></span></button>
+    <button id="book1"><span class="glyphicon glyphicon-trash"></span></button>
+    <button id="book2"><span class="glyphicon glyphicon-edit"></span></button>
+    <!-- <a href="#"> <span class="glyphicon glyphicon-trash"></span></a>
+    <a href="#"><span class="glyphicon glyphicon-edit"></span></a> -->
+    <input type="text" placeholder="Search.." name="search" [(ngModel)]="searchText"><span
+      class="glyphicon glyphicon-search searchTextIcon"></span>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div class="sidetoggle" *ngIf="isShown">
+        <ul>
+          <li>AllNotes</li>
+          <li (click)="getAll()"><a>
+              <h3><span class="glyphicon glyphicon-folder-close"></span> Notes</h3>
+            </a></li>
+
+        </ul>
+        <button type="button" class="btn btn-success newfolder"><span class="glyphicon glyphicon-plus-sign"></span>
+          NewFolder</button>
+
+      </div>
+
+    </div>
+    <div class="col-md-10">
+      <div class="middle">
+
+        <div class="list1">
+
+          <table class="table table-bordered">
+            <tbody>
+              <tr
+                *ngFor="let emp of employeeService.allEmployee | sortBy: 'title':'asc|desc' | filter: {title: searchText, description:searchText}; let i=index;"
+                (ngBind)="emp.title" (click)="show(emp.title)" [class.active]="emp.title == selectedRow">
+                <td><a>
+                    <h3 title="click here to show the full title description">{{emp.title}}</h3>
+                  </a></td>
+                <td>
+                  <p>{{emp.description | limitTo:15}} </p>
+                </td>
+                <td>
+                  <span> <a class="btn text-danger" (click)="deleteEmployee(emp.id)">
+                      <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                    <a class="btn" (click)="updateEmployee(emp);showDetails()">
+                      <span class="glyphicon glyphicon-pencil"></span>
+                    </a></span></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- <div>
+            <button class="btn btn-danger" style="width:100px">Add
+              Note
+            </button>
+          </div> -->
+
+          <router-outlet></router-outlet>
+        </div>
+
+        <div class="right1" contenteditable="true">
+          <ul>
+            <li *ngFor="let ss of details ">
+              <h2>{{ss.title}}</h2>
+              <p>{{ss.description}}</p>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </div>

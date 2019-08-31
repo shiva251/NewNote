@@ -1,0 +1,53 @@
+<!-- Modification Details:
+1. This html page used to show Middle panel content in the dashboard -->
+
+<div class="middle">
+	<div class="list1">
+	<h4>Notes List:</h4>
+		<input class="searchTextInput" type="text" name="search" [(ngModel)]="searchText"
+			placeholder="Search..."><span class="glyphicon glyphicon-search searchTextIcon"></span>
+		<table class="table table-bordered">
+			<tbody>
+				<tr
+					*ngFor="let emp of employeeService.allEmployee | sortBy: 'title':'asc|desc' | filter: {title: searchText, description:searchText}; let i=index;"
+					(ngBind)="emp.title" (click)="show(emp.title)"
+					[class.active]="emp.title == selectedRow">
+					<td><a>
+							<h4 title="click here to show the full title description">{{emp.title}}</h4>
+					</a></td>
+					<td>
+						<p>{{emp.description | limitTo:15}}</p>
+					</td>
+					<td><span> <a class="btn text-danger"
+							(click)="deleteEmployee(emp.id)" title="delete"> <span
+								class="glyphicon glyphicon-trash"></span>
+						</a> <a class="btn" (click)="updateEmployee(emp)" title="update"> <span
+								class="glyphicon glyphicon-pencil"></span>
+						</a></span></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="emp-form">
+			<input placeholder="Please enter your notes title" class="form-control"
+				[(ngModel)]="employeeService.currentEmployee.title"> 
+				
+				<input
+				placeholder="Please enter your notes description" class="form-control"
+				[(ngModel)]="employeeService.currentEmployee.description">
+				
+			<button class="btn btn-primary" title="click here to add note/folder title"
+				(click)="createEmployee(employeeService.currentEmployee)">
+				<i class="glyphicon glyphicon-plus"></i>Add
+			</button>
+		</div>
+		<router-outlet></router-outlet>
+	</div>
+	<div class="right1" contenteditable="true">
+		<ul>
+			<li *ngFor="let item of details">
+				<h2>{{item.title}}</h2>
+				<p>{{item.description}}</p>
+			</li>
+		</ul>
+	</div>
+</div>

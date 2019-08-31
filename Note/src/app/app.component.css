@@ -1,0 +1,153 @@
+body {margin:0;}
+.togglebtn {
+  position: absolute;
+  margin-top: 13px;
+  margin-left: -250px;
+}
+#book {
+  font-size: 30px;
+  background-color: #555;
+  color: #ffffff;
+  border: none;
+  margin: 7px 0 0 80px;
+
+}
+#book1 {
+  font-size: 30px;
+  background-color: #555;
+  color: #ffffff;
+  border: none;
+  margin: 7px 0 0 80px;
+
+}
+#book2 {
+  font-size: 30px;
+  background-color: #555;
+  color: #ffffff;
+  border: none;
+  margin: 7px 0 0 80px;
+
+}
+
+.icon-bar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+  position: fixed;
+  margin-left: -15px;
+  display: block;
+}
+
+.icon-bar a {
+  float: left;
+  width: 10%;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 25px;
+
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #4CAF50;
+  margin-left:10%;
+}
+.icon-bar input[type=text] {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid grey;
+  border-radius: 20px;
+  width: 20%;
+  background: #f1f1f1;
+  /* margin-top:5px; */
+  margin-left: 15%;
+}
+
+.row{
+    margin-top: 59px;
+}
+.col-md-2 {
+    height: 703px;
+    font-size: 20px;
+    position: fixed;
+}
+.col-md-2 a {
+  color: white;
+  text-decoration: none;
+  
+
+}
+ li a:hover {
+  cursor: pointer;
+  
+}
+.sidetoggle {
+  width: 250px;
+  height: 707px;
+  font-size: 20px;
+  background-color: #5e5e5e;
+  color: #ffffff;
+  margin-left: -16px;
+
+}
+.col-md-10 {
+margin-left: 16%;
+}
+ul li  {
+    list-style-type: none;
+    /* color: white; */
+}
+li a {
+    /* color: white; */
+    font-size: 30px;
+
+}
+.newfolder {
+    position: absolute;
+    top: 620px;
+    left: 30px;
+}
+.middle {
+  width: 100%;
+  font-size: 20px;
+  box-shadow: -3px 0px 5px 1px #aaaaaa;
+  margin-top: -9px;
+
+}
+.list1 {
+  width:40%;
+  height: 600px;
+  float: left;
+  /* margin-top: -15px; */
+}
+ul li {
+  list-style-type: none;
+  font-size: 25px;    
+}
+.right1 {
+  width: 61%;
+  height: 702px;
+  font-size: 20px;
+  margin-left: 41%;
+  box-shadow: -3px 0px 5px 1px #aaaaaa;
+  /* padding: 2px; */
+  box-sizing: border-box;
+}
+.table tr.active td {
+  background-color:gray !important;
+  color: white;
+}
+
+.searchTextInput{
+	width: 100%; 
+}
+.searchTextIcon{
+  color: white;
+  font-size: 25px;
+    top: 8px;
+}

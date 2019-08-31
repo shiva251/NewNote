@@ -1,0 +1,49 @@
+<div class="right" contenteditable="true">
+    <!-- <h2 class="text-center">Add User</h2> -->
+    <!-- <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="tittle">Title:</label>
+            <input type="text" formControlName="tittle" placeholder="title" name="tittle" class="form-control"
+                id="tittle">
+        </div>
+
+        <div class="form-group">
+            <label for="discription">Description:</label>
+            <input type="text" formControlName="discription" placeholder="discription" name="discription"
+                class="form-control" id="discription">
+        </div>
+        <button class="btn btn-success" (click)="addUser()">Add</button>
+    </form> -->
+    <div>
+        <form [formGroup]="addNote" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+
+                <label for="title">Title:</label>
+                <input placeholder="title" formControlName="title" class="form-control"
+                    [(ngModel)]="employeeService.currentEmployee.title"
+                    [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                    <div *ngIf="f.title.errors.required">Title is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label for="description">Description:</label>
+                <input placeholder="description" formControlName="description" class="form-control"
+                    [(ngModel)]="employeeService.currentEmployee.description"
+                    [ngClass]="{ 'is-invalid': submitted && f.description.errors }">
+                <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                    <div *ngIf="f.description.errors.required">Enter your description.!</div>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <button class="btn btn-success btn-lg" (click)="createEmployee(employeeService.currentEmployee)">AddNote
+                </button>
+                <button type="reset" class="btn btn-danger btn-lg">clear </button>
+            </div>
+        </form>
+
+    </div>
+
+</div>
